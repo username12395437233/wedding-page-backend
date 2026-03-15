@@ -3,7 +3,7 @@ from contextlib import asynccontextmanager
 
 import httpx
 from fastapi import FastAPI, Header, HTTPException
-
+from typing import Optional
 from app.config import settings
 from app.models import SubmitRequest, SubmitResponse
 from app.db import create_submission, init_db, delete_submission_by_id
@@ -57,7 +57,7 @@ async def health() -> dict:
 @app.post("/submit", response_model=SubmitResponse)
 async def submit_form(
     payload: SubmitRequest,
-    x_api_secret: str | None = Header(default=None),
+    x_api_secret: Optional[str] = Header(default=None)
 ) -> SubmitResponse:
     if x_api_secret != settings.API_SECRET:
         raise HTTPException(status_code=401, detail="Invalid API secret")
@@ -87,7 +87,7 @@ async def submit_form(
 @app.delete("/submissions/{submission_id}")
 async def delete_submission(
     submission_id: int,
-    x_api_secret: str | None = Header(default=None),
+    x_api_secret: Optional[str] = Header(default=None)
 ) -> dict:
     if x_api_secret != settings.API_SECRET:
         raise HTTPException(status_code=401, detail="Invalid API secret")
