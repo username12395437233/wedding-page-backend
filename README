@@ -1,0 +1,4 @@
+sudo systemctl restart wedding-backend
+sudo systemctl status wedding-backend
+
+journalctl -u wedding-backend -f
