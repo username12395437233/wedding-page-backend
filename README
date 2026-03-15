@@ -1,4 +1,7 @@
 sudo systemctl restart wedding-backend
 sudo systemctl status wedding-backend
 
+sudo systemctl restart wedding-bot
+sudo systemctl status wedding-bot
+
 journalctl -u wedding-backend -f

@@ -5,6 +5,7 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
+
 def load_env_file(path: Path) -> None:
     if not path.exists():
         return
@@ -28,6 +29,7 @@ class Settings:
 
     DATABASE_PATH: str = os.getenv("DATABASE_PATH", str(BASE_DIR / "data" / "app.db"))
     EXPORT_DIR: str = os.getenv("EXPORT_DIR", str(BASE_DIR / "exports"))
+    TELEGRAM_THREAD_ID: str = os.getenv("TELEGRAM_THREAD_ID", "")
 
     TELEGRAM_BOT_TOKEN: str = os.getenv("TELEGRAM_BOT_TOKEN", "")
     TELEGRAM_CHAT_ID: str = os.getenv("TELEGRAM_CHAT_ID", "")
