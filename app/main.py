@@ -57,10 +57,7 @@ async def health() -> dict:
 @app.post("/submit", response_model=SubmitResponse)
 async def submit_form(
     payload: SubmitRequest,
-    x_api_secret: Optional[str] = Header(default=None)
 ) -> SubmitResponse:
-    if x_api_secret != settings.API_SECRET:
-        raise HTTPException(status_code=401, detail="Invalid API secret")
 
     submission_id = create_submission(
         name=payload.name.strip(),
