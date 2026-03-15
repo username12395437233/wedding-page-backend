@@ -73,7 +73,10 @@ async def submit_form(
         f"<b>Алкоголь:</b> {html.escape(format_alcohol(payload.alcohol.model_dump()))}"
     )
 
-    await send_telegram_message(text)
+    try:
+        await send_telegram_message(text)
+    except Exception as e:
+        print(f"Telegram send failed: {e}")
 
     return SubmitResponse(
         ok=True,
