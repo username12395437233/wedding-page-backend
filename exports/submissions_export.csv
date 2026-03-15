@@ -1,0 +1,4 @@
+id,name,allergy,whiteWine,redWine,champagne,beer,whiskey,tinctures,created_at
+3,ter,tre,True,False,False,False,False,False,2026-03-15T20:46:09.157569+00:00
+2,ter,tre,True,False,False,False,False,False,2026-03-15T20:45:53.390520+00:00
+1,ter,tre,True,False,False,False,False,False,2026-03-15T20:45:39.784276+00:00
