@@ -5,3 +5,8 @@ sudo systemctl restart wedding-bot
 sudo systemctl status wedding-bot
 
 journalctl -u wedding-backend -f
+
+for i in {3..10}; do
+  curl -X DELETE "http://127.0.0.1:8000/submissions/$i" \
+    -H "X-API-Secret: <SECRET>"
+done
